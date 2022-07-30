@@ -1,7 +1,0 @@
-com\backend\app\business\coury\service\CouryService.class
-com\backend\app\model\Payload.class
-com\backend\app\common\map\GoogleMap.class
-com\backend\app\config\MvcConfig.class
-com\backend\app\common\map\NCloudMap.class
-com\backend\app\business\common\SuperService.class
-com\backend\app\model\PayloadList.class

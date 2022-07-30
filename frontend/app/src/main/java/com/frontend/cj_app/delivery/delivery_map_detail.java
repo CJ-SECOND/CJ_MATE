@@ -1,21 +1,22 @@
 package com.frontend.cj_app.delivery;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
-import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.frontend.cj_app.R;
 import com.frontend.cj_app.common.api.RetrofitAPI;
 import com.frontend.cj_app.common.model.map.ResultPath;
 import com.frontend.cj_app.common.payload.CouryToAddress_Request;
 import com.frontend.cj_app.common.payload.CouryToAddress_Response;
+import com.github.mikephil.charting.data.LineRadarDataSet;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.MapFragment;
@@ -36,21 +37,19 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class delivery_map extends AppCompatActivity
+public class delivery_map_detail extends AppCompatActivity
         implements OnMapReadyCallback {
-
     int userSeq = 1;
     String packageName = "DU121";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_map);
-
+        setContentView(R.layout.delivery_map_detail);
+        LinearLayout showdetail = findViewById(R.id.show_detail);
+    showdetail.bringToFront();
 //        Intent intent = getIntent();
 //        intent.getIntExtra("userSeq");
 //        String pack = intent.getStringExtra("packageName");
-
         FragmentManager fm = getSupportFragmentManager();
         MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);
         if (mapFragment == null) {
@@ -59,7 +58,6 @@ public class delivery_map extends AppCompatActivity
         }
         mapFragment.getMapAsync(this);
     }
-
     String APIKEY_ID = "hwdocwymq1";
     String APIKEY = "JtRWnSdOgAMQJKHsPpNsEzGleRQdfuWyNJosdQqa";
 
@@ -85,16 +83,20 @@ public class delivery_map extends AppCompatActivity
         AddressApi.getCouryToAddress(request).enqueue(new Callback<CouryToAddress_Response>() {
             @Override
             public void onResponse(Call<CouryToAddress_Response> call, Response<CouryToAddress_Response> response) {
-                CouryToAddress_Response result = response.body();
-                String recvAddress = "response : " + result.getRecvAddress();
+                CouryToAddress_Response resultgeo = response.body();
 
+                String recvAddress = resultgeo.getRecvAddress().get(0).toString();
+
+                //구글api 사용안하고 안드로이드 자체 geocode툴 사용(이게 결국 구글api)
                 Geocoder geocoder = new Geocoder(getApplicationContext());
                 List<Address> list = new ArrayList<Address>();
+
                 try {
                     list = geocoder.getFromLocationName(recvAddress, 10);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                Log.i("late : ", String.valueOf(list.get(0).getLatitude()));
                 //도착지 위도경도 구하기
                 Double goal_latitude = list.get(0).getLatitude();
                 Double goal_longitude = list.get(0).getLongitude();
@@ -118,7 +120,6 @@ public class delivery_map extends AppCompatActivity
                                     double latitude = path.get(1);
                                     cords.add(new LatLng(latitude, longitude));
                                 }
-
                                 pathOverlay.setColor(0xff029aff);
                                 pathOverlay.setCoords(cords);
                                 pathOverlay.setMap(naverMap);
@@ -154,5 +155,6 @@ public class delivery_map extends AppCompatActivity
             public void onFailure(Call<CouryToAddress_Response> call, Throwable t) {
             }
         });
+
     }
 }

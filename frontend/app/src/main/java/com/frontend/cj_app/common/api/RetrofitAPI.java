@@ -1,5 +1,6 @@
 package com.frontend.cj_app.common.api;
 
+import com.frontend.cj_app.common.model.map.ResultPath;
 import com.frontend.cj_app.common.payload.Assignment_Request;
 import com.frontend.cj_app.common.payload.Assignment_Response;
 import com.frontend.cj_app.common.payload.Assignmented_Request;
@@ -8,6 +9,8 @@ import com.frontend.cj_app.common.payload.Complete_Request;
 import com.frontend.cj_app.common.payload.Complete_Response;
 import com.frontend.cj_app.common.payload.Confirm_Request;
 import com.frontend.cj_app.common.payload.Confirm_Response;
+import com.frontend.cj_app.common.payload.CouryToAddress_Request;
+import com.frontend.cj_app.common.payload.CouryToAddress_Response;
 import com.frontend.cj_app.common.payload.Coury_Response;
 import com.frontend.cj_app.common.payload.Login_Response;
 import com.frontend.cj_app.common.payload.User_Request;
@@ -16,6 +19,7 @@ import com.frontend.cj_app.common.payload.Login_Request;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -52,6 +56,25 @@ public interface RetrofitAPI {
     Call <Assignmented_Response> getAssignmetedCouryList(@Body Assignmented_Request data);
 
     // 통계
+<<<<<<< HEAD
+    @GET("/coury/selectst")
+    Call <Coury_Response> selectst(@Query("USER_SEQUENCE") int USER_SEQUENCE);
+
+    // 네이버 driving api
+    @GET("v1/driving")
+    Call<ResultPath> navigation(@Header("X-NCP-APIGW-API-KEY-ID")String apikeyID,
+                                @Header("X-NCP-APIGW-API-KEY") String apikey,
+                                @Query("start") String start,
+                                @Query("goal") String goal);
+
+    // 주소
+    @Headers({"Content-Type: application/json"})
+    @POST("/coury/getCouryToAddress")
+    Call<CouryToAddress_Response> getCouryToAddress(@Body CouryToAddress_Request data);
+
+
+=======
     @GET("/coury/getCouryResult")
     Call <Coury_Response> getCouryResult(@Query("userSeq") int userSeq);
+>>>>>>> f33cef5ba6b2eaf4dfef10d4b52a428f5c6d19cc
 }

@@ -67,16 +67,16 @@ public class Join_area extends AppCompatActivity {
 
                 String user_couryarea = spinner_do.getSelectedItem().toString() +" "+ et_areasi.getText().toString() +" "+ et_areadong.getText().toString() ;
 
-                registerUser(new User_Request(USER_NAME,USER_ID,USER_PW,USER_PHONENUM,
-                        USER_BANKNAME,USER_ACCOUNT, USER_CARNUM,
-                        USER_CARTYPE,USER_CARNUMCOLOR,user_couryarea));
+                registerUser(new User_Request(USER_ID,USER_PW,USER_NAME,USER_PHONENUM,
+                        USER_CARNUM,USER_CARTYPE, USER_ACCOUNT,
+                        USER_CARNUMCOLOR,USER_BANKNAME,user_couryarea));
                 startActivity(intent);
             }
         });
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.0.18:8080")
+            .baseUrl("http://10.254.2.21:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

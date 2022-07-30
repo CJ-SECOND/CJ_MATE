@@ -123,7 +123,7 @@ public class TaskConfirm extends AppCompatActivity {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.0.18:8080")
+            .baseUrl("http://10.254.2.21:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/drawable/border_button2.xml" value="0.1445" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/app_start.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/barcode.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/border_shade.xml" value="0.2390625" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/delivery_check.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/delivery_check_detail.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/delivery_map.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/delivery_map_detail.xml" value="0.2390625" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/delivery_status.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/dsla_agreement.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/task_requset.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/task_requset_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/task_requset_parent_list.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/layout/tte.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Owner/Desktop/projectcj/CJ_APP/frontend/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1445" />
         <entry key="..\:/cj_workspace/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2925" />
         <entry key="..\:/cj_workspace/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2925" />
         <entry key="..\:/cj_workspace/app/src/main/res/drawable/img_location_black.xml" value="0.2925" />

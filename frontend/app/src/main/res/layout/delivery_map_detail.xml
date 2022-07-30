@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/map_top_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/header"
+            android:gravity="center"
+            android:text="길찾기"
+            android:textColor="@android:color/black"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/map_ic_scan"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginLeft="355dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/ic_scan" />
+
+        <!--네이버 지도 api 받아와서 여기에 지정-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="135px"
+            android:layout_weight="14">
+
+            <fragment android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/map"
+                android:name="com.naver.maps.map.MapFragment" />
+
+
+               <LinearLayout
+                   android:id="@+id/show_detail"
+                   android:layout_width="300dp"
+                   android:layout_height="110dp"
+                   android:layout_gravity="center"
+                   android:layout_marginTop="230dp"
+                   android:elevation="10dp"
+                   android:orientation="horizontal"
+                   android:background="@drawable/border_button2">
+
+                   <ImageView
+                       android:layout_marginTop="6dp"
+                       android:layout_width="35dp"
+                       android:layout_height="75dp"
+                       android:layout_marginLeft="10dp"
+                       android:src="@drawable/start_end" />
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="출발지"
+                       android:textColor="#817777"
+                       android:layout_marginTop="10dp"
+
+                       android:textSize="12dp"
+                       />
+                   <TextView
+                       android:id="@+id/start_name"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="마포 CJ물류센터"
+                       android:textColor="@color/black"
+                       android:textSize="16dp"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="도착지"
+                       android:textColor="#817777"
+                       android:layout_marginTop="12dp"
+                       android:textSize="12dp"
+                       />
+                   <TextView
+                       android:id="@+id/goal_name"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text=""
+                       android:textColor="@color/black"
+                       android:textSize="16dp"
+                       />
+                   </LinearLayout>
+
+               </LinearLayout>
+
+
+
+        </FrameLayout>
+
+
+
+
+    </FrameLayout>
+</FrameLayout>
