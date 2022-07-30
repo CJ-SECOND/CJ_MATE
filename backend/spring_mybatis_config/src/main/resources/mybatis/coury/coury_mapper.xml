@@ -127,5 +127,23 @@
 			AND USER_SEQUENCE = #{userSeq}
 		]]>
 	</select>
-
+	
+	<select id="selectCouryResult" parameterType="Payload" resultType="Payload">
+         <![CDATA[
+            SELECT 
+				GROUP_CONCAT(DISTINCT DATE_FORMAT(EXPRESS_DATE, '%Y-%m-%d')) AS COURY_DATE, 
+				COUNT(COURY_SEQUENCE) AS CNT
+			FROM COURY
+			WHERE USER_SEQUENCE = #{userSeq}
+			AND DATE_FORMAT(EXPRESS_DATE, '%Y-%m-%d') between '2022-05-01' and '2022-05-07'
+		]]>
+			<if test='condition != null'>
+	            <![CDATA[
+	            AND COURY_CONDITION = #{condition}    
+	            ]]>
+	         </if>
+		<![CDATA[
+			GROUP BY DATE_FORMAT(CONCAT(EXPRESS_DATE), '%Y-%M-%D')
+         ]]>
+	</select>
 </mapper>
