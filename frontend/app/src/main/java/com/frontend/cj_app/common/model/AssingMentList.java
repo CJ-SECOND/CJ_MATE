@@ -1,6 +1,8 @@
 package com.frontend.cj_app.common.model;
 
-public class AssingMentList {
+import java.io.Serializable;
+
+public class AssingMentList implements Serializable {
     private String packageName;
     private String classSize;
     private String classWeight;

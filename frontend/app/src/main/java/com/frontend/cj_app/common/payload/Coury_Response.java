@@ -1,53 +1,58 @@
 package com.frontend.cj_app.common.payload;
 
+import com.frontend.cj_app.common.model.Coury_Result;
 import com.google.gson.annotations.SerializedName;
 
 public class Coury_Response {
 
-    @SerializedName("total_cnt")
-    private int total_cnt;
-    @SerializedName("wrong_cnt")
-    private int wrong_cnt;
-    @SerializedName("complete_cnt")
-    private int complete_cnt;
-    @SerializedName("damage_cnt")
-    private int damage_cnt;
+    @SerializedName("total")
+    private Coury_Result total;
+
+    @SerializedName("wrong")
+    private Coury_Result wrong;
+
+    @SerializedName("complete")
+    private Coury_Result complete;
+
+    @SerializedName("damage")
+    private Coury_Result damage;
+
     @SerializedName("REPL_CD")
     private String REPL_CD;
+
     @SerializedName("REPL_MSG")
     private String REPL_MSG;
 
-
-    public int getTotal_cnt() {
-        return total_cnt;
+    public Coury_Result getTotal() {
+        return total;
     }
 
-    public void setTotal_cnt(int total_cnt) {
-        this.total_cnt = total_cnt;
+    public void setTotal(Coury_Result total) {
+        this.total = total;
     }
 
-    public int getWrong_cnt() {
-        return wrong_cnt;
+    public Coury_Result getWrong() {
+        return wrong;
     }
 
-    public void setWrong_cnt(int wrong_cnt) {
-        this.wrong_cnt = wrong_cnt;
+    public void setWrong(Coury_Result wrong) {
+        this.wrong = wrong;
     }
 
-    public int getComplete_cnt() {
-        return complete_cnt;
+    public Coury_Result getComplete() {
+        return complete;
     }
 
-    public void setComplete_cnt(int complete_cnt) {
-        this.complete_cnt = complete_cnt;
+    public void setComplete(Coury_Result complete) {
+        this.complete = complete;
     }
 
-    public int getDamage_cnt() {
-        return damage_cnt;
+    public Coury_Result getDamage() {
+        return damage;
     }
 
-    public void setDamage_cnt(int damage_cnt) {
-        this.damage_cnt = damage_cnt;
+    public void setDamage(Coury_Result damage) {
+        this.damage = damage;
     }
 
     public String getREPL_CD() {

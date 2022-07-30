@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.frontend.cj_app.task.TaskRequestMain;
 import com.frontend.cj_app.user.join.Join_main;
 import com.frontend.cj_app.user.login.Login_main;
+import com.frontend.cj_app.dsla.tracking;
 
 public class AppStart extends AppCompatActivity {
 
@@ -30,7 +32,7 @@ public class AppStart extends AppCompatActivity {
         btn_ToLogin_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login_main.class);
+                Intent intent = new Intent(getApplicationContext(), TaskRequestMain.class);
                 startActivity(intent);
             }
         });

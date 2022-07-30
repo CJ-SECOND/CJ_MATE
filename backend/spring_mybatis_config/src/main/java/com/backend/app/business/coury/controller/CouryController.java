@@ -3,11 +3,12 @@ package com.backend.app.business.coury.controller;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.backend.app.business.coury.service.CouryService;
@@ -19,15 +20,6 @@ public class CouryController {
     
     @Autowired
     CouryService couryService;
-
-//    @ResponseBody
-//    @GetMapping("/getCouryResult")
-//    public ResponseEntity<Payload> getCouryListByDate(@RequestParam int userSeq) {
-//    	Payload result = new Payload();
-//    	
-//    	result = couryService.getCouryListByDate(userSeq);
-//    	return ResponseEntity.ok(result);
-//    }
    
     @ResponseBody
     @PostMapping("/getDistance")
@@ -85,5 +77,16 @@ public class CouryController {
 
     	result = couryService.getAssignmentedCouryList(request);
     	return ResponseEntity.ok(result);
+    }
+    
+    @ResponseBody
+    @GetMapping("/getCouryResult")
+    public ResponseEntity<Payload> selectst(@RequestParam int userSeq) {
+       Payload result = new Payload();
+              
+       Payload request = new Payload();
+       request.set("userSeq", userSeq);       
+       result = couryService.getCouryResult(request);
+       return ResponseEntity.ok(result);
     }
 }

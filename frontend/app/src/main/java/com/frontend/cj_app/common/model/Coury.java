@@ -1,6 +1,8 @@
 package com.frontend.cj_app.common.model;
 
-public class Coury {
+import java.io.Serializable;
+
+public class Coury implements Serializable {
     private String recvName;
     private String recvAddr;
     private String couryCondition;

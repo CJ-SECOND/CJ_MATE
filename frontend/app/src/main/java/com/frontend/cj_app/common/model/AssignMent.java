@@ -1,6 +1,8 @@
 package com.frontend.cj_app.common.model;
 
-public class AssignMent {
+import java.io.Serializable;
+
+public class AssignMent implements Serializable {
     private String coury_to_address;
     private String coury_to_name;
     private String coury_from_address;

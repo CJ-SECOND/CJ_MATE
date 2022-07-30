@@ -46,6 +46,42 @@ public class CouryService extends SuperService{
 		return result;
 	}
 	
+	public Payload getCouryResult(Payload request) {
+	      Payload result = new Payload();
+	      
+	      try {
+	         //1. 전체 배송 결과 
+	         PayloadList<Payload> total = selectList("mybatis.coury.coury_mapper.selectCouryResult", request);
+	         
+	         // 2. 배송 완료 결과 
+	         request.set("condition", "배송완료");
+	         PayloadList<Payload> complete = selectList("mybatis.coury.coury_mapper.selectCouryResult",request);
+	         
+	         // 3. 분실/파손
+	         request.set("condition", "분실/파손");
+	         PayloadList<Payload> damage = selectList("mybatis.coury.coury_mapper.selectCouryResult", request);
+	         
+	         // 4. 오배송
+	         request.set("condition", "오배송");
+	         PayloadList<Payload> wrong = selectList("mybatis.coury.coury_mapper.selectCouryResult", request);
+	         
+	         result.set("total", total);
+	         result.set("complete", complete);
+	         result.set("damage", damage);
+	         result.set("wrong", wrong);
+	         
+	         result.set("REPL_CD", SUCCESS_CD);
+	         result.set("REPL_MSG", SUCCESS_MSG);
+	         
+	      } catch (Exception ex) {
+	         result.set("REPL_CD", DEFAULT_ERROR_CD);
+	         result.set("REPL_MSG", DEFAULT_ERROR_MSG);
+	         ex.printStackTrace();
+	      }
+	      
+	      return result;
+	}	
+	
 	// 할당된 배송 목록 가져오기
 	public Payload getAssignmentedCouryList(Payload request) {
 		Payload result = new Payload();
