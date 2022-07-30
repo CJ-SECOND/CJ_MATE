@@ -11,6 +11,7 @@ import com.frontend.cj_app.task.TaskRequestMain;
 import com.frontend.cj_app.user.join.Join_main;
 import com.frontend.cj_app.user.login.Login_main;
 import com.frontend.cj_app.dsla.tracking;
+import com.frontend.cj_app.delivery.delivery_map_detail;
 
 public class AppStart extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class AppStart extends AppCompatActivity {
         btn_ToLogin_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TaskRequestMain.class);
+                Intent intent = new Intent(getApplicationContext(), delivery_map_detail.class);
                 startActivity(intent);
             }
         });

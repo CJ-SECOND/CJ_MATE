@@ -56,9 +56,8 @@ public interface RetrofitAPI {
     Call <Assignmented_Response> getAssignmetedCouryList(@Body Assignmented_Request data);
 
     // 통계
-<<<<<<< HEAD
-    @GET("/coury/selectst")
-    Call <Coury_Response> selectst(@Query("USER_SEQUENCE") int USER_SEQUENCE);
+    @GET("/coury/getCouryResult")
+    Call <Coury_Response> getCouryResult(@Query("userSeq") int userSeq);
 
     // 네이버 driving api
     @GET("v1/driving")
@@ -72,9 +71,4 @@ public interface RetrofitAPI {
     @POST("/coury/getCouryToAddress")
     Call<CouryToAddress_Response> getCouryToAddress(@Body CouryToAddress_Request data);
 
-
-=======
-    @GET("/coury/getCouryResult")
-    Call <Coury_Response> getCouryResult(@Query("userSeq") int userSeq);
->>>>>>> f33cef5ba6b2eaf4dfef10d4b52a428f5c6d19cc
 }
