@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -31,19 +31,21 @@
             android:background="@drawable/ic_scan" />
 
         <!--네이버 지도 api 받아와서 여기에 지정-->
-        <!--    <FrameLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="0px"-->
-        <!--        android:layout_weight="14">-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="680px"
+                android:layout_marginTop="135px"
+                android:layout_weight="14">
 
 
-        <!--        <fragment-->
-        <!--            android:id="@+id/map"-->
-        <!--            android:name="com.naver.maps.map.MapFragment"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent" />-->
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.naver.maps.map.MapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-        <!--    </FrameLayout>-->
+
+            </FrameLayout>
 
 
         <TextView
@@ -189,4 +191,4 @@
             android:fastScrollEnabled = "true"/>
 
     </FrameLayout>
-</ScrollView>
+</LinearLayout>

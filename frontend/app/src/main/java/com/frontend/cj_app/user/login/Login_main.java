@@ -32,7 +32,7 @@ public class Login_main extends AppCompatActivity {
         EditText editText_password = findViewById(R.id.edittext_password);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.18:8080")
+                    .baseUrl("http://10.254.2.21:8080")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             @Override
@@ -46,7 +46,7 @@ public class Login_main extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Login_Response> call, Response<Login_Response> response) {
                         Login_Response login = response.body(); //데이터받기
-                        if (login != null){
+                        if (login.getUserSeq() > 0){
                             Intent intent = new Intent(getApplicationContext(), permissionset.class);
                             Toast.makeText(getApplicationContext(),"로그인하셨습니다.",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
