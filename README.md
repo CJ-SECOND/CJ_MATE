@@ -33,8 +33,8 @@
 ### (1) Backend(Spring):
 
 * 1-1. maven build
- * maven clean -> maven install
- * maven install Failure 발생시 pom.xml dependency version 3.1.0 으로 수정 필요
+  * maven clean -> maven install
+  * maven install Failure 발생시 pom.xml dependency version 3.1.0 으로 수정 필요
  
  ```xml
 <dependency>
@@ -45,7 +45,7 @@
 ```
 
 * 1-2. tomcat server 연결
- * server.xml Context-path -> "/app" -> "" 로 수정 필요
+  * server.xml Context-path -> "/app" -> "" 로 수정 필요
 ```xml 
 <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
 	<Valve className="org.apache.catalina.authenticator.SingleSignOn" />
@@ -56,7 +56,7 @@
 ```
 
 * 1-3. DB Connection 정보 수정
- * src/main/java/backend/app/business/config/MvcConfig.java 파일 내
+  * src/main/java/backend/app/business/config/MvcConfig.java 파일 내
  
 ```java 
 HikariConfig hikariConfig = new HikariConfig();
@@ -69,8 +69,8 @@ HikariConfig hikariConfig = new HikariConfig();
 ### (2) Frontend(Android Studio):
 
 * 2-1. ipconfig -> wi-fi 무선 LAN IPv4 주소 설정
- * 안드로이드 기기로 앱 접속시 DeskTop or 노트북의 접속시 동일 wifi로 접속 (필수 사항)
- * cmd -> "ipconfig" 명령어 입력 -> "IPv4 주소 . . . . . . . . . : [ip주소]" Android Studio의 모든 프로젝트의 baseUrl을 수정 필요(Android studio - "Ctrl + Shift + R" 키로 한번에 변경 가능) 
+  * 안드로이드 기기로 앱 접속시 DeskTop or 노트북의 접속시 동일 wifi로 접속 (필수 사항)
+  * cmd -> "ipconfig" 명령어 입력 -> "IPv4 주소 . . . . . . . . . : [ip주소]" Android Studio의 모든 프로젝트의 baseUrl을 수정 필요(Android studio - "Ctrl + Shift + R" 키로 한번에 변경 가능) 
 
 ```java
 Retrofit retrofit2 = new Retrofit.Builder()
@@ -94,6 +94,6 @@ mysql -u [username] -p cjapp < /DB/CJ_APP.SQL
 ```
 
 * 3-3. DB Dump file insert (배송 관련 데이터 insert)
- * /DB/DUMB 폴더 내에 있는 파일 "db_dump_insert.ipynb"파일 실행 필요
- * jupyter notebook 실행후 "db_dump_insert.ipynb" 실행시 자동 db dump data 생성 됨.(dump data insert 전 db 및 table 생성 선행 필요)
+  * /DB/DUMB 폴더 내에 있는 파일 "db_dump_insert.ipynb"파일 실행 필요
+  * jupyter notebook 실행후 "db_dump_insert.ipynb" 실행시 자동 db dump data 생성 됨.(dump data insert 전 db 및 table 생성 선행 필요)
 
