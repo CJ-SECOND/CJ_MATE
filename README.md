@@ -1,7 +1,7 @@
 <h2 align="center">CJ MATE</h2>
 
 <p align="center">
-  <img src="/img/cj_mate.png" alt="CJ Mate's logo"/>
+  <img src="https://github.com/CJ-SECOND/CJ_APP/blob/master/img/CJ_APP.png" alt="CJ Mate's logo" width="400px" height="400px"/>
 </p>
 
 
