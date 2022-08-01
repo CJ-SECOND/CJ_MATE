@@ -46,6 +46,27 @@ public class CouryService extends SuperService{
 		return result;
 	}
 	
+	public Payload getCouryToMap(Payload request) {
+	      Payload result = new Payload();
+	      
+	      try {
+	         //1. 전체 배송 결과 
+	         PayloadList<Payload> recv_addr_list = selectList("mybatis.coury.coury_mapper.selectCouryToMap", request);
+	         result.set("recvAddrList", recv_addr_list);
+	         
+	         result.set("REPL_CD", SUCCESS_CD);
+	         result.set("REPL_MSG", SUCCESS_MSG);
+	         
+	      } catch (Exception ex) {
+	         result.set("REPL_CD", DEFAULT_ERROR_CD);
+	         result.set("REPL_MSG", DEFAULT_ERROR_MSG);
+	         ex.printStackTrace();
+	      }
+	      
+	      return result;
+	}	
+	
+	// 유저 배송 통계 데이터 가져오기
 	public Payload getCouryResult(Payload request) {
 	      Payload result = new Payload();
 	      

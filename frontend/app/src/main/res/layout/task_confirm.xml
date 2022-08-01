@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +25,6 @@
 
 
         <LinearLayout
-            android:id="@+id/first"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -42,11 +40,12 @@
                 android:textColor="@color/black" />
 
             <LinearLayout
+                android:id="@+id/first"
                 android:layout_width="329dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/border_button"
+                android:background="@drawable/border_linear2"
                 android:clickable="true"
                 android:orientation="horizontal">
 
@@ -84,6 +83,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/fee1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -91,10 +91,11 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/count1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="3dp"
-                        android:text="배송 26"
+                        android:text="배송 30"
                         android:textColor="#3e65e1"
                         android:textSize="10sp" />
 
@@ -159,7 +160,6 @@
                             android:textSize="13sp" />
 
                         <TextView
-                            android:id="@+id/classTotal1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="22dp"
@@ -170,6 +170,7 @@
                             android:textSize="10sp" />
 
                         <TextView
+                            android:id="@+id/classTotal1"
                             android:layout_width="17dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/border_linear3"
@@ -184,13 +185,13 @@
 
                 <TextView
                     android:id="@+id/timeState1"
-                    android:layout_width="40dp"
+                    android:layout_width="47dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-20dp"
                     android:layout_marginTop="12dp"
                     android:background="@drawable/border_linear3"
-                    android:gravity="center"
                     android:text="새벽"
+                    android:gravity="center"
                     android:textColor="#029aff" />
 
             </LinearLayout>
@@ -239,6 +240,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/fee2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -246,6 +248,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/count2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="3dp"
@@ -339,7 +342,7 @@
 
                 <TextView
                     android:id="@+id/timeState2"
-                    android:layout_width="40dp"
+                    android:layout_width="47dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-20dp"
                     android:layout_marginTop="12dp"
@@ -394,6 +397,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/fee3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -401,6 +405,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/count3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="3dp"
@@ -494,7 +499,7 @@
 
                 <TextView
                     android:id="@+id/timeState3"
-                    android:layout_width="40dp"
+                    android:layout_width="47dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-20dp"
                     android:layout_marginTop="12dp"
@@ -536,80 +541,4 @@
 
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/linear_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/border_linear4"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_map1"
-            android:layout_width="82dp"
-            android:layout_height="63dp"
-            android:layout_alignParentBottom="true"
-            android:background="#00ff0000"
-            android:drawableTop="@drawable/img_location_gray"
-            android:drawablePadding="-5dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:text="지도"
-            android:textColor="#dfe2eb" />
-
-        <Button
-            android:layout_width="82dp"
-            android:layout_height="63dp"
-            android:layout_alignParentBottom="true"
-            android:background="#00ff0000"
-            android:drawableTop="@drawable/img_car_gray"
-            android:drawablePadding="-5dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:text="등록"
-            android:textColor="#dfe2eb"/>
-
-        <Button
-            android:layout_width="82dp"
-            android:layout_height="63dp"
-            android:layout_alignParentBottom="true"
-            android:background="#00ff0000"
-            android:drawableTop="@drawable/img_addcricle_black"
-            android:drawablePadding="-5dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:text="업무 신청"
-            android:textColor="#000000"/>
-
-        <Button
-            android:layout_width="82dp"
-            android:layout_height="63dp"
-            android:layout_alignParentBottom="true"
-            android:background="#00ff0000"
-            android:drawableTop="@drawable/img_location_gray"
-            android:drawablePadding="-5dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:text="배송현황"
-            android:textColor="#dfe2eb"/>
-
-        <Button
-            android:layout_width="82dp"
-            android:layout_height="63dp"
-            android:layout_alignParentBottom="true"
-            android:background="#00ff0000"
-            android:drawableTop="@drawable/img_menu_gray"
-            android:drawablePadding="-5dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="10dp"
-            android:text="더보기"
-            android:textColor="#dfe2eb" />
-
-    </LinearLayout>
 </LinearLayout>

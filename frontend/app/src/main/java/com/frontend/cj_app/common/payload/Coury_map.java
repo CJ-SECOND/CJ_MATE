@@ -4,12 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class Coury_map {
 
-    public Coury_map(String couryToAddress, String couryCondition, String couryToName) {
-        this.couryToAddress = couryToAddress;
-        this.couryCondition = couryCondition;
-        this.couryToName = couryToName;
-    }
-
     @SerializedName("COURY_TO_ADDRESS")
     private String couryToAddress;
 
@@ -18,6 +12,12 @@ public class Coury_map {
 
     @SerializedName("COURY_TO_NAME")
     private String couryToName;
+
+    public Coury_map(String couryToAddress, String couryCondition, String couryToName) {
+        this.couryToAddress = couryToAddress;
+        this.couryCondition = couryCondition;
+        this.couryToName = couryToName;
+    }
 
     public String getCouryToAddress() {
         return couryToAddress;

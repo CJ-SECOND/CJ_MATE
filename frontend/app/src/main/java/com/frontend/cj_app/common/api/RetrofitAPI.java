@@ -12,9 +12,9 @@ import com.frontend.cj_app.common.payload.Confirm_Response;
 import com.frontend.cj_app.common.payload.CouryToAddress_Request;
 import com.frontend.cj_app.common.payload.CouryToAddress_Response;
 import com.frontend.cj_app.common.payload.Coury_Response;
+import com.frontend.cj_app.common.payload.Login_Request;
 import com.frontend.cj_app.common.payload.Login_Response;
 import com.frontend.cj_app.common.payload.User_Request;
-import com.frontend.cj_app.common.payload.Login_Request;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -52,13 +52,8 @@ public interface RetrofitAPI {
 
     // 할당 받은 배송 리스트 조회
     @Headers({"Content-Type: application/json"})
-    @POST("/ncoury/getAssignmentedCouryList")
+    @POST("/coury/getAssignmentedCouryList")
     Call <Assignmented_Response> getAssignmetedCouryList(@Body Assignmented_Request data);
-
-    // 통계
-<<<<<<< HEAD
-    @GET("/coury/selectst")
-    Call <Coury_Response> selectst(@Query("USER_SEQUENCE") int USER_SEQUENCE);
 
     // 네이버 driving api
     @GET("v1/driving")
@@ -69,12 +64,10 @@ public interface RetrofitAPI {
 
     // 주소
     @Headers({"Content-Type: application/json"})
-    @POST("/coury/getCouryToAddress")
+    @POST("/coury/getCouryToMap")
     Call<CouryToAddress_Response> getCouryToAddress(@Body CouryToAddress_Request data);
 
-
-=======
     @GET("/coury/getCouryResult")
     Call <Coury_Response> getCouryResult(@Query("userSeq") int userSeq);
->>>>>>> f33cef5ba6b2eaf4dfef10d4b52a428f5c6d19cc
+
 }

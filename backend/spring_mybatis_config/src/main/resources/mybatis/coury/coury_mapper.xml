@@ -94,8 +94,8 @@
 		<![CDATA[
 			UPDATE COURY SET
 				USER_SEQUENCE = #{userSeq},
-				COURY_ASSIGNMENT = 'Y'
-				COURY_CONDEITION = '미배송'
+				COURY_ASSIGNMENT = 'Y',
+				COURY_CONDITION = '미배송'
 			WHERE COURY_SEQUENCE IN
 		]]>
 		<foreach collection="couryList" item="coury" open="(" close=")" separator=",">
@@ -146,4 +146,18 @@
 			GROUP BY DATE_FORMAT(CONCAT(EXPRESS_DATE), '%Y-%M-%D')
          ]]>
 	</select>
+	
+	<select id="selectCouryToMap" parameterType="Payload" resultType="Payload">
+      <![CDATA[
+         SELECT 
+            COURY_TO_ADDRESS,
+            COURY_CONDITION,
+            COURY_TO_NAME
+         FROM COURY
+         WHERE PACKAGE_NAME = #{packageName}
+         AND COURY_ASSIGNMENT = 'Y'
+         AND USER_SEQUENCE = #{userSeq}
+      ]]>
+   </select>
+	
 </mapper>

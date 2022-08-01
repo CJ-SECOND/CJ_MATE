@@ -8,15 +8,10 @@ import java.util.List;
 public class CouryToAddress_Response {
 
 public CouryToAddress_Response(){}
-    public CouryToAddress_Response(List<Coury_map> recvAddress, String REPL_CD, String REPL_MSG) {
-        this.recvAddress = recvAddress;
-        this.REPL_CD = REPL_CD;
-        this.REPL_MSG = REPL_MSG;
-    }
 
-    @SerializedName("recvAddress")
+    @SerializedName("recvAddrList")
     @Expose
-    private List<Coury_map> recvAddress;
+    private List<Coury_map> recvAddrList;
 
     @SerializedName("REPL_CD")
     @Expose
@@ -26,12 +21,18 @@ public CouryToAddress_Response(){}
     @Expose
     private String REPL_MSG;
 
-    public List<Coury_map> getRecvAddress() {
-        return recvAddress;
+    public CouryToAddress_Response(List<Coury_map> recvAddrList, String REPL_CD, String REPL_MSG) {
+        this.recvAddrList = recvAddrList;
+        this.REPL_CD = REPL_CD;
+        this.REPL_MSG = REPL_MSG;
     }
 
-    public void setRecvAddress(List<Coury_map> recvAddress) {
-        this.recvAddress = recvAddress;
+    public List<Coury_map> getRecvAddrList() {
+        return recvAddrList;
+    }
+
+    public void setRecvAddrList(List<Coury_map> recvAddrList) {
+        this.recvAddrList = recvAddrList;
     }
 
     public String getREPL_CD() {

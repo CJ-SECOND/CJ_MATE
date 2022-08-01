@@ -22,7 +22,7 @@
 			VALUES
 				(
 					#{USER_ID},
-					#{USER_PASSOWRD},
+					#{USER_PASSWORD},
 					#{USER_NAME},
 					#{USER_PHONENUM},
 					#{USER_CARNUM},

@@ -81,12 +81,20 @@ public class CouryController {
     
     @ResponseBody
     @GetMapping("/getCouryResult")
-    public ResponseEntity<Payload> selectst(@RequestParam int userSeq) {
+    public ResponseEntity<Payload> getCouryResult(@RequestParam int userSeq) {
        Payload result = new Payload();
               
        Payload request = new Payload();
        request.set("userSeq", userSeq);       
        result = couryService.getCouryResult(request);
+       return ResponseEntity.ok(result);
+    }
+    
+    @ResponseBody
+    @PostMapping("/getCouryToMap")
+    public ResponseEntity<Payload> getCouryToMap(@RequestBody Payload request) {
+       Payload result = new Payload();
+       result = couryService.getCouryToMap(request);
        return ResponseEntity.ok(result);
     }
 }

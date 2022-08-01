@@ -1,10 +1,14 @@
 package com.frontend.cj_app.delivery;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
@@ -12,11 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.frontend.cj_app.R;
+import com.frontend.cj_app.barcode.Barcode;
 import com.frontend.cj_app.common.api.RetrofitAPI;
 import com.frontend.cj_app.common.model.map.ResultPath;
 import com.frontend.cj_app.common.payload.CouryToAddress_Request;
 import com.frontend.cj_app.common.payload.CouryToAddress_Response;
-import com.github.mikephil.charting.data.LineRadarDataSet;
+import com.frontend.cj_app.dsla.tracking;
+import com.frontend.cj_app.task.TaskRequestMain;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.MapFragment;
@@ -37,27 +43,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class delivery_map_detail extends AppCompatActivity
-        implements OnMapReadyCallback {
-    int userSeq = 1;
-    String packageName = "DU121";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_map_detail);
-        LinearLayout showdetail = findViewById(R.id.show_detail);
-    showdetail.bringToFront();
-//        Intent intent = getIntent();
-//        intent.getIntExtra("userSeq");
-//        String pack = intent.getStringExtra("packageName");
-        FragmentManager fm = getSupportFragmentManager();
-        MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);
-        if (mapFragment == null) {
-            mapFragment = MapFragment.newInstance();
-            fm.beginTransaction().add(R.id.map, mapFragment).commit();
-        }
-        mapFragment.getMapAsync(this);
-    }
+public class delivery_map_detail extends AppCompatActivity implements OnMapReadyCallback {
+
     String APIKEY_ID = "hwdocwymq1";
     String APIKEY = "JtRWnSdOgAMQJKHsPpNsEzGleRQdfuWyNJosdQqa";
 
@@ -71,9 +58,34 @@ public class delivery_map_detail extends AppCompatActivity
             .build();
 
     Retrofit retrofit2 = new Retrofit.Builder()
-            .baseUrl("http://10.254.2.21:8080")
+            .baseUrl("http://192.168.0.18:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+
+    // 테스트
+    int userSeq = 1;
+    String packageName = "9XYDJDT0BX";
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.delivery_map_detail);
+
+        LinearLayout showdetail = findViewById(R.id.show_detail);
+        showdetail.bringToFront();
+
+//        Intent intent = getIntent();
+//        intent.getIntExtra("userSeq");
+//        String pack = intent.getStringExtra("packageName");
+
+        FragmentManager fm = getSupportFragmentManager();
+        MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);
+        if (mapFragment == null) {
+            mapFragment = MapFragment.newInstance();
+            fm.beginTransaction().add(R.id.map, mapFragment).commit();
+        }
+        mapFragment.getMapAsync(this);
+    }
 
     @UiThread
     @Override
@@ -85,7 +97,9 @@ public class delivery_map_detail extends AppCompatActivity
             public void onResponse(Call<CouryToAddress_Response> call, Response<CouryToAddress_Response> response) {
                 CouryToAddress_Response resultgeo = response.body();
 
-                String recvAddress = resultgeo.getRecvAddress().get(0).toString();
+                String recvAddress = resultgeo.getRecvAddrList().get(0).getCouryToAddress();
+                TextView goal_name = findViewById(R.id.goal_name);
+                goal_name.setText(recvAddress);
 
                 //구글api 사용안하고 안드로이드 자체 geocode툴 사용(이게 결국 구글api)
                 Geocoder geocoder = new Geocoder(getApplicationContext());
@@ -155,6 +169,38 @@ public class delivery_map_detail extends AppCompatActivity
             public void onFailure(Call<CouryToAddress_Response> call, Throwable t) {
             }
         });
-
+//네비게이션 바
+        Button btn_to_barcode = findViewById(R.id.btn_to_barcode1);
+        btn_to_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Barcode.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_request = findViewById(R.id.btn_to_request1);
+        btn_to_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TaskRequestMain.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_delivery = findViewById(R.id.btn_to_delivery1);
+        btn_to_delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), delivery_map.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_more = findViewById(R.id.btn_to_more1);
+        btn_to_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), tracking.class);
+                startActivity(intent);
+            }
+        });
     }
 }

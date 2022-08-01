@@ -1,20 +1,27 @@
 package com.frontend.cj_app.task;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
 import com.frontend.cj_app.R;
 import com.frontend.cj_app.common.api.RetrofitAPI;
 import com.frontend.cj_app.common.model.AssingMentList;
 import com.frontend.cj_app.common.payload.Assignment_Request;
 import com.frontend.cj_app.common.payload.Assignment_Response;
+
+import java.io.Serializable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,15 +31,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TaskRequest extends AppCompatActivity {
 
+    String area;
+    String dateTime;
+    String timeState;
+    final int[] count = {0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.task_requset);
 
         Intent intent = getIntent();
-        String area = intent.getStringExtra("area");
-        String dateTime = intent.getStringExtra("dateTime");
-        String timeState = intent.getStringExtra("timeState");
+        area = intent.getStringExtra("area");
+        dateTime = intent.getStringExtra("dateTime");
+        timeState = intent.getStringExtra("timeState");
 
         TextView requestTitle = findViewById(R.id.requestTitle);
         requestTitle.setText(dateTime);
@@ -49,7 +61,6 @@ public class TaskRequest extends AppCompatActivity {
         Button cntBtn4 = findViewById(R.id.cntBtn4);
         Button btn_next8 = findViewById(R.id.btn_next8);
 
-        final int[] count = {0};
         cntBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,7 +133,7 @@ public class TaskRequest extends AppCompatActivity {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://10.254.2.21:8080")
+            .baseUrl("http://192.168.0.18:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -138,10 +149,14 @@ public class TaskRequest extends AppCompatActivity {
                 AssingMentList end = result.getEnd();
 
                 Intent intent = new Intent(getApplicationContext(), TaskConfirm.class);
-                intent.putExtra("first", (Parcelable) first);
-                intent.putExtra("mid", (Parcelable) mid);
-                intent.putExtra("end", (Parcelable) end);
-                intent.putExtra("request",(Parcelable) data);
+                intent.putExtra("first", first);
+                intent.putExtra("mid", mid);
+                intent.putExtra("end", end);
+                intent.putExtra("area", area);
+                intent.putExtra("dateTime", dateTime);
+                intent.putExtra("timeState", timeState);
+                intent.putExtra("count", count[0]);
+                createNotification();
                 startActivity(intent);
             }
             @Override
@@ -150,4 +165,23 @@ public class TaskRequest extends AppCompatActivity {
             }
         });
     }
+
+    private void createNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
+
+        builder.setSmallIcon(R.mipmap.cjmate_ic2);
+        builder.setContentTitle("업무를 확정해주세요.");
+        builder.setContentText("마포 5월 3일 업무배치되었습니다.\n" +
+                "앱에서 자세히 보고 확정해주시길 바랍니다.");
+
+        builder.setAutoCancel(true); //탭 클릭하면 자동 제거
+        //알림 표시
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.createNotificationChannel(new NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT));
+        }
+        //각 알림의 고유한 int값
+        notificationManager.notify(1, builder.build());
+    }
+
 }

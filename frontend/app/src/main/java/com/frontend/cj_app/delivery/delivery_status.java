@@ -2,7 +2,6 @@ package com.frontend.cj_app.delivery;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,8 +13,8 @@ import com.frontend.cj_app.common.api.RetrofitAPI;
 import com.frontend.cj_app.common.model.Coury;
 import com.frontend.cj_app.common.payload.Assignmented_Request;
 import com.frontend.cj_app.common.payload.Assignmented_Response;
-import com.frontend.cj_app.common.payload.Confirm_Request;
-import com.frontend.cj_app.common.payload.Confirm_Response;
+import com.frontend.cj_app.dsla.tracking;
+import com.frontend.cj_app.task.TaskRequestMain;
 
 import java.util.List;
 
@@ -40,10 +39,45 @@ public class delivery_status extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //네비게이션 바
+        Button btn_to_map = findViewById(R.id.btn_to_map4);
+        btn_to_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), delivery_map_detail.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_barcode = findViewById(R.id.btn_to_barcode4);
+        btn_to_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Barcode.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_request = findViewById(R.id.btn_to_request4);
+        btn_to_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TaskRequestMain.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_to_more = findViewById(R.id.btn_to_more4);
+        btn_to_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), tracking.class);
+                startActivity(intent);
+            }
+        });
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://10.254.2.21:8080")
+            .baseUrl("http://192.168.0.18:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -62,5 +96,7 @@ public class delivery_status extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

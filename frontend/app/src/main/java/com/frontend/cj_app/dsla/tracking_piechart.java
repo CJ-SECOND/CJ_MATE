@@ -1,18 +1,14 @@
 package com.frontend.cj_app.dsla;
 
-import android.app.Fragment;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
 import com.frontend.cj_app.R;
@@ -31,23 +27,10 @@ public class tracking_piechart extends Fragment {
 
     private PieChart pieChart;
 
-    private Coury_Result total;
-    private Coury_Result complete;
-    private Coury_Result wrong;
-    private Coury_Result damage;
-
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-//            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-//                // We use a String here, but any type that can be put in a Bundle is supported
-//                String result = bundle.getString("bundleKey");
-//                // Do something with the result
-//            }
-//        });
-//    }
+    private int total;
+    private int complete;
+    private int wrong;
+    private int damage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,18 +43,18 @@ public class tracking_piechart extends Fragment {
         float per_damage = 0;
 
         // 1. 정시 배송률(2022-05-03 일 데이터)
-        //per_complete = complete.getResult().get(1).getCount() / total.getResult().get(1).getCount();
+//        per_complete = complete.getResult().get(1).getCount() / total.getResult().get(1).getCount();
 
         // 2. 오배송률 (2022-05-03 일 데이터)
-        //per_wrong = wrong.getResult().get(1).getCount() / total.getResult().get(1).getCount();
+//        per_wrong = wrong.getResult().get(1).getCount() / 5;
 
         // 3. 분실파손률(2022-05-03 일 데이터)
-        //per_damage = complete.getResult().get(1).getCount() / total.getResult().get(1).getCount();
+//        per_damage = complete.getResult().get(1).getCount() / 5;
 
         // 차트 그리기
         pieChart = view.findViewById(R.id.piechart);
         setupPieChart();
-        // loadPieChartData(per_complete, per_wrong, per_damage);
+//         loadPieChartData(per_complete, per_wrong, per_damage);
         loadPieChartData(0.97f, 0.02f, 0.01f);
 
         return view;

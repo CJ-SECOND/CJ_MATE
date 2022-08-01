@@ -2,7 +2,6 @@ package com.frontend.cj_app.user.join;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,14 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.frontend.cj_app.R;
-import com.frontend.cj_app.common.api.RetrofitAPI;
-import com.frontend.cj_app.common.payload.User_Request;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Join_car_info extends AppCompatActivity {
 
@@ -34,7 +25,7 @@ public class Join_car_info extends AppCompatActivity {
         Intent intent = getIntent();
         String USER_ID = intent.getStringExtra("USER_ID");
         String USER_NAME = intent.getStringExtra("USER_NAME");
-        String USER_PW = intent.getStringExtra("USER_PW");
+        String USER_PASSWORD = intent.getStringExtra("USER_PASSWORD");
         String USER_PHONENUM = intent.getStringExtra("USER_PHONENUM");
         String USER_BANKNAME = intent.getStringExtra("USER_BANKNAME");
         String USER_ACCOUNT = intent.getStringExtra("USER_ACCOUNT");
@@ -69,7 +60,7 @@ public class Join_car_info extends AppCompatActivity {
                 intent.putExtra("USER_ACCOUNT", USER_ACCOUNT);
                 intent.putExtra("USER_ID",USER_ID);
                 intent.putExtra("USER_NAME",USER_NAME);
-                intent.putExtra("USER_PW",USER_PW);
+                intent.putExtra("USER_PASSWORD",USER_PASSWORD);
                 intent.putExtra("USER_PHONENUM",USER_PHONENUM);
                 startActivity(intent);
             }

@@ -6,9 +6,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.frontend.cj_app.R;
 import com.frontend.cj_app.barcode.Barcode;
 import com.frontend.cj_app.sms.sms;
@@ -20,32 +22,23 @@ public class delivery_check extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delivery_check);
 
-                final Button btn_lock = (Button) findViewById(R.id.btn_lock);
-                btn_lock.setOnClickListener(new View.OnClickListener() {
+        Intent intent = getIntent();
+        String recvName = intent.getStringExtra("recvName");
+        String recvAddr = intent.getStringExtra("recvAddr");
+        String condition = intent.getStringExtra("condition");
 
-                    public void onClick(View view) {
-                        AlertDialog.Builder dlg = new AlertDialog.Builder(delivery_check.this);
-                        dlg.setTitle("비밀번호"); //제목
-                        dlg.setMessage("#1219 7676#"); //내용
-                        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+        TextView delivery_check_address = findViewById(R.id.delivery_check_address);
+        delivery_check_address.setText(recvAddr);
 
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
 
-                            }
-                        });
-                        dlg.show();
-                    }
-                });
+        final Button btn_lock = (Button) findViewById(R.id.btn_lock);
+        btn_lock.setOnClickListener(new View.OnClickListener() {
 
-                final Button btn_lost = (Button) findViewById(R.id.btn_lost);
-                btn_lost.setOnClickListener(new View.OnClickListener() {
-
-                    public void onClick(View view) {
-                        AlertDialog.Builder dlg = new AlertDialog.Builder(delivery_check.this);
-                dlg.setTitle("분실/파손"); //제목
-                dlg.setMessage("지원팀에 접수해주세요.(1588-1255)"); //내용
-                dlg.setPositiveButton("연결", new DialogInterface.OnClickListener() {
+            public void onClick(View view) {
+                AlertDialog.Builder dlg = new AlertDialog.Builder(delivery_check.this);
+                dlg.setTitle("비밀번호"); //제목
+                dlg.setMessage("#1219 7676#"); //내용
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -54,6 +47,23 @@ public class delivery_check extends AppCompatActivity {
                 });
                 dlg.show();
             }
+        });
+
+            final Button btn_lost = (Button) findViewById(R.id.btn_lost);
+            btn_lost.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    AlertDialog.Builder dlg = new AlertDialog.Builder(delivery_check.this);
+            dlg.setTitle("분실/파손"); //제목
+            dlg.setMessage("지원팀에 접수해주세요.(1588-1255)"); //내용
+            dlg.setPositiveButton("연결", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            dlg.show();
+        }
 
         });
         final Button btn_wrong = (Button) findViewById(R.id.btn_wrong);
@@ -73,6 +83,7 @@ public class delivery_check extends AppCompatActivity {
                 dlg.show();
             }
         });
+
         Button btn_completion = findViewById(R.id.btn_completion);
         btn_completion.setOnClickListener(new View.OnClickListener() {
             @Override

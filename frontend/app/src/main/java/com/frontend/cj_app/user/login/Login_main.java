@@ -2,7 +2,6 @@ package com.frontend.cj_app.user.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +31,7 @@ public class Login_main extends AppCompatActivity {
         EditText editText_password = findViewById(R.id.edittext_password);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.254.2.21:8080")
+                    .baseUrl("http://192.168.0.18:8080")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             @Override

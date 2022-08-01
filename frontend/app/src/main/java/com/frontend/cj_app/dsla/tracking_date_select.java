@@ -2,20 +2,22 @@ package com.frontend.cj_app.dsla;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.frontend.cj_app.R;
 import com.frontend.cj_app.common.api.RetrofitAPI;
+import com.frontend.cj_app.common.model.Coury_Result;
 import com.frontend.cj_app.common.payload.Coury_Response;
-import com.frontend.cj_app.user.login.permissionset;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,18 +43,12 @@ public class tracking_date_select extends Fragment {
         Button fributton = view.findViewById(R.id.fributton);
         Button satbutton = view.findViewById(R.id.satbutton);
 
-        // 차트 그리기
-        getCouryResult(1);
-
         sunbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sunbutton.setSelected(true);
                 monbutton.setSelected(false);
 
-                Bundle result = new Bundle();
-                result.putString("bundleKey", "result");
-                getParentFragmentManager().setFragmentResult("requestKey", result);
             }
         });
 
@@ -127,14 +123,14 @@ public class tracking_date_select extends Fragment {
             @Override
             public void onResponse(Call<Coury_Response> call, Response<Coury_Response> response) {
                 Coury_Response result = response.body();
+                Log.v("reuslt", String.valueOf(result));
 
                 Bundle request = new Bundle();
-                request.putSerializable("total", result.getTotal());
-                request.putSerializable("complete", result.getComplete());
-                request.putSerializable("wrong", result.getWrong());
-                request.putSerializable("damage", result.getDamage());
-                getParentFragmentManager().setFragmentResult("coury_result", request);
-
+//                request.putSerializable("total", result.getTotal());
+//                request.putSerializable("complete", result.getComplete());
+//                request.putSerializable("wrong", result.getWrong());
+//                request.putSerializable("damage", result.getDamage());
+                getParentFragmentManager().setFragmentResult("requestKey", request);
             }
 
             @Override

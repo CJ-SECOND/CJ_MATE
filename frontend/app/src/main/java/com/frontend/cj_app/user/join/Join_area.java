@@ -38,7 +38,7 @@ public class Join_area extends AppCompatActivity {
 
         String USER_ID = intent.getStringExtra("USER_ID");
         String USER_NAME = intent.getStringExtra("USER_NAME");
-        String USER_PW = intent.getStringExtra("USER_PW");
+        String USER_PASSWORD = intent.getStringExtra("USER_PASSWORD");
         String USER_PHONENUM = intent.getStringExtra("USER_PHONENUM");
         String USER_BANKNAME = intent.getStringExtra("USER_BANKNAME");
         String USER_ACCOUNT = intent.getStringExtra("USER_ACCOUNT");
@@ -67,7 +67,7 @@ public class Join_area extends AppCompatActivity {
 
                 String user_couryarea = spinner_do.getSelectedItem().toString() +" "+ et_areasi.getText().toString() +" "+ et_areadong.getText().toString() ;
 
-                registerUser(new User_Request(USER_ID,USER_PW,USER_NAME,USER_PHONENUM,
+                registerUser(new User_Request(USER_ID,USER_PASSWORD,USER_NAME,USER_PHONENUM,
                         USER_CARNUM,USER_CARTYPE, USER_ACCOUNT,
                         USER_CARNUMCOLOR,USER_BANKNAME,user_couryarea));
                 startActivity(intent);
@@ -76,7 +76,7 @@ public class Join_area extends AppCompatActivity {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://10.254.2.21:8080")
+            .baseUrl("http://192.168.0.18:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

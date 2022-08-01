@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
@@ -25,22 +23,12 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/ic_glass"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="325dp"
-            android:background="@drawable/ic_glass" />
-
-        <Button
             android:id="@+id/scannerbutton"
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="355dp"
             android:background="@drawable/ic_scan" />
-
-
 
         <TextView
             android:id="@+id/delivery_check_subname_fix"
@@ -60,7 +48,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="70dp"
             android:gravity="center_horizontal|top"
-            android:text="데이터"
+            android:text="정민창"
             android:textAppearance="@style/수취방법"
             android:textStyle="bold" />
 
@@ -70,8 +58,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="100dp"
-            android:text="충청남도 천안시 동남구 용곡동 한국공학대학교
-104동 1219호 -> 데이터"
+            android:text="서울특별시 마포구 성미산로27길"
             android:textSize="10dp"
             android:textAppearance="@style/수취방법"/>
 
@@ -139,7 +126,7 @@
             android:layout_marginTop="600dp"
             android:background="@drawable/btn_completion"
             android:text="배송완료"
-            android:textAppearance="@style/btn"/>
+            android:textAppearance="@style/btn" />
 
         <Button
             android:id="@+id/btn_navi"
@@ -201,7 +188,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="225dp"
             android:gravity="center_horizontal|top"
-            android:text="0000-0000-0000"
+            android:text="1293-2836-0847"
             android:textAppearance="@style/배송완료_상세" />
 
         <TextView
@@ -221,7 +208,7 @@
             android:layout_marginLeft="310dp"
             android:layout_marginTop="225dp"
             android:gravity="center_horizontal|top"
-            android:text="배송완료"
+            android:text="미배송"
             android:textAppearance="@style/배송완료_상세" />
 
 

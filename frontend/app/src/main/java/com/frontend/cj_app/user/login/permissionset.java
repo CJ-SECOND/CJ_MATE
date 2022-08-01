@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.frontend.cj_app.R;
 import com.frontend.cj_app.delivery.delivery_map;
-import com.frontend.cj_app.task.TaskRequestMain;
+import com.frontend.cj_app.dsla.dsla_main;
 
 public class permissionset extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class permissionset extends AppCompatActivity {
         NextButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), delivery_map.class);
+                Intent intent = new Intent(getApplicationContext(), dsla_main.class);
                 startActivity(intent);
             }
         });

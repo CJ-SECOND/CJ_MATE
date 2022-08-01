@@ -1,19 +1,24 @@
 package com.frontend.cj_app.task;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.frontend.cj_app.R;
+import com.frontend.cj_app.barcode.Barcode;
 import com.frontend.cj_app.common.adapter.ChildListAdapter;
-import com.frontend.cj_app.common.adapter.ParentListAdapter;
 import com.frontend.cj_app.common.model.TASK_CHILD_LIST;
-import com.frontend.cj_app.common.model.TASK_PARENT_LIST;
+import com.frontend.cj_app.delivery.delivery_map;
+import com.frontend.cj_app.delivery.delivery_map_detail;
+import com.frontend.cj_app.delivery.delivery_status;
+import com.frontend.cj_app.dsla.dsla_main;
+import com.frontend.cj_app.dsla.tracking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +55,41 @@ public class TaskRequestMain extends AppCompatActivity {
                 }
             });
         }
+        //네비게이션 바
+        Button btn_to_map = findViewById(R.id.btn_to_map3);
+        btn_to_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), delivery_map_detail.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_barcode = findViewById(R.id.btn_to_barcode3);
+        btn_to_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Barcode.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_delivery = findViewById(R.id.btn_to_delivery3);
+        btn_to_delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), delivery_map.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_more = findViewById(R.id.btn_to_more3);
+        btn_to_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), tracking.class);
+                startActivity(intent);
+            }
+        });
+
+        
+        
     }
 }

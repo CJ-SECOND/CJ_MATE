@@ -12,14 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.frontend.cj_app.R;
-import com.frontend.cj_app.common.api.RetrofitAPI;
-import com.frontend.cj_app.common.payload.User_Request;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Join_account extends AppCompatActivity {
 
@@ -35,7 +27,7 @@ public class Join_account extends AppCompatActivity {
         Intent intent = getIntent();
         String USER_ID = intent.getStringExtra("USER_ID");
         String USER_NAME = intent.getStringExtra("USER_NAME");
-        String USER_PW = intent.getStringExtra("USER_PW");
+        String USER_PASSWORD = intent.getStringExtra("USER_PASSWORD");
         String USER_PHONENUM = intent.getStringExtra("USER_PHONENUM");
         button.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -60,7 +52,7 @@ public class Join_account extends AppCompatActivity {
                 intent.putExtra("USER_ACCOUNT", user_account);
                 intent.putExtra("USER_ID",USER_ID);
                 intent.putExtra("USER_NAME",USER_NAME);
-                intent.putExtra("USER_PW",USER_PW);
+                intent.putExtra("USER_PASSWORD",USER_PASSWORD);
                 intent.putExtra("USER_PHONENUM",USER_PHONENUM);
                 Log.i("test",USER_ID);
                 Log.i("test",user_bankname);

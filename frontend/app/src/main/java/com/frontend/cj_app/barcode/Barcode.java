@@ -1,6 +1,5 @@
 package com.frontend.cj_app.barcode;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -10,7 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.frontend.cj_app.R;
+import com.frontend.cj_app.delivery.delivery_map;
+import com.frontend.cj_app.delivery.delivery_map_detail;
+import com.frontend.cj_app.delivery.delivery_status;
+import com.frontend.cj_app.dsla.tracking;
+import com.frontend.cj_app.task.TaskRequestMain;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -52,6 +58,47 @@ public class Barcode extends AppCompatActivity{
                 ivTest.setImageBitmap(bitmap);
             }
         });
+        //네비게이션 바
+        Button btn_to_map = findViewById(R.id.btn_to_map2);
+        btn_to_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), delivery_map_detail.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_barcode = findViewById(R.id.btn_to_barcode2);
+        btn_to_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Barcode.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_request = findViewById(R.id.btn_to_request2);
+        btn_to_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TaskRequestMain.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_delivery = findViewById(R.id.btn_to_delivery2);
+        btn_to_delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), delivery_map.class);
+                startActivity(intent);
+            }
+        });
+        Button btn_to_more = findViewById(R.id.btn_to_more2);
+        btn_to_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), tracking.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -70,5 +117,7 @@ public class Barcode extends AppCompatActivity{
         else{
             super.onActivityResult(requestCode,resultCode,data);
         }
+
+
     }
 }

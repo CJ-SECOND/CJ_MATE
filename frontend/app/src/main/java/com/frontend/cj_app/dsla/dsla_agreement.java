@@ -21,7 +21,7 @@ public class dsla_agreement extends AppCompatActivity {
         agreebutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TaskRequestMain.class);
+                Intent intent = new Intent(getApplicationContext(), dsla_check.class);
                 startActivity(intent);
             }
         });

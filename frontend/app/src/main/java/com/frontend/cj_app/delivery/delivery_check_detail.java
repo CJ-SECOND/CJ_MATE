@@ -8,7 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.frontend.cj_app.R;
-import com.frontend.cj_app.photo.photo;
+import com.frontend.cj_app.camera.camera;
+import com.frontend.cj_app.sms.sms;
 
 public class delivery_check_detail extends AppCompatActivity {
 
@@ -17,12 +18,21 @@ public class delivery_check_detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delivery_check_detail);
 
+        Button send_sms = findViewById(R.id.send_sms);
+        send_sms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), sms.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button camerabutton = findViewById(R.id.camerabutton);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), photo.class);
+                Intent intent = new Intent(getApplicationContext(), camera.class);
                 startActivity(intent);
             }
         });
