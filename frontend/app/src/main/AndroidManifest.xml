@@ -34,9 +34,6 @@
         <activity
             android:name=".camera.camera"
             android:exported="false" />
-        <activity
-            android:name=".camera.camera"
-            android:exported="false" />
         <!-- dsla -->
         <activity
             android:name=".dsla.dsla_agreement"
