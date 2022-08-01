@@ -113,7 +113,7 @@ public class tracking_date_select extends Fragment {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.0.18:8080")
+            .baseUrl("http://[IP 주소]:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -139,5 +139,4 @@ public class tracking_date_select extends Fragment {
             }
         });
     }
-
 }

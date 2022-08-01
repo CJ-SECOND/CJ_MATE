@@ -45,8 +45,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class delivery_map_detail extends AppCompatActivity implements OnMapReadyCallback {
 
-    String APIKEY_ID = "hwdocwymq1";
-    String APIKEY = "JtRWnSdOgAMQJKHsPpNsEzGleRQdfuWyNJosdQqa";
+    String APIKEY_ID = "";
+    String APIKEY = "";
 
     //마포구 cj물류센터 좌표(고정?)
     Double start_longitude =126.84496853255905;
@@ -58,7 +58,7 @@ public class delivery_map_detail extends AppCompatActivity implements OnMapReady
             .build();
 
     Retrofit retrofit2 = new Retrofit.Builder()
-            .baseUrl("http://192.168.0.18:8080")
+            .baseUrl("http://[IP 주소]:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -73,10 +73,6 @@ public class delivery_map_detail extends AppCompatActivity implements OnMapReady
 
         LinearLayout showdetail = findViewById(R.id.show_detail);
         showdetail.bringToFront();
-
-//        Intent intent = getIntent();
-//        intent.getIntExtra("userSeq");
-//        String pack = intent.getStringExtra("packageName");
 
         FragmentManager fm = getSupportFragmentManager();
         MapFragment mapFragment = (MapFragment)fm.findFragmentById(R.id.map);

@@ -28,6 +28,7 @@ public class dsla_check extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Button agreebutton3 = findViewById(R.id.agreebutton3);
         agreebutton3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,10 +39,7 @@ public class dsla_check extends AppCompatActivity {
                     return;
                 } else
                     startActivity(intent);
-
-
             }
         });
-
     }
 }

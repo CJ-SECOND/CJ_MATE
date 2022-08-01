@@ -44,7 +44,6 @@ public class sms extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "SMS faild, please try again later!", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
-
             }
         });
     }

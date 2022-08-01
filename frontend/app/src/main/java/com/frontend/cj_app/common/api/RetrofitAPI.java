@@ -27,8 +27,8 @@ import retrofit2.http.Query;
 public interface RetrofitAPI {
     // 로그인
     @Headers({"Content-Type: application/json"})
-    @POST("/user/login")
-    Call <Login_Response> LoginUser(@Body Login_Request data);
+            @POST("/user/login")
+                    Call <Login_Response> LoginUser(@Body Login_Request data);
 
     // 회원가입
     @Headers({"Content-Type: application/json"})

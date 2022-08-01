@@ -117,7 +117,5 @@ public class Barcode extends AppCompatActivity{
         else{
             super.onActivityResult(requestCode,resultCode,data);
         }
-
-
     }
 }

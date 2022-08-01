@@ -86,12 +86,9 @@ public class camera extends AppCompatActivity {
                     openCamera();
                 } else {
                     Toast.makeText(this,"Permission denied",Toast.LENGTH_SHORT).show();
-
                 }
-
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

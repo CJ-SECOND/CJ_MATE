@@ -31,7 +31,7 @@ public class Login_main extends AppCompatActivity {
         EditText editText_password = findViewById(R.id.edittext_password);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.18:8080")
+                    .baseUrl("http://[IP 주소]:8080")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             @Override

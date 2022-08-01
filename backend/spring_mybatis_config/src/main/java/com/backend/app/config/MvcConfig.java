@@ -39,7 +39,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
  		hikariConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
  		hikariConfig.setJdbcUrl("jdbc:mysql://localhost:13306/cjapp?serverTimezone=UTC");
  		hikariConfig.setUsername("root");
- 		hikariConfig.setPassword("0216");
+ 		hikariConfig.setPassword("");
  		
  		return new HikariDataSource(hikariConfig);
  	}

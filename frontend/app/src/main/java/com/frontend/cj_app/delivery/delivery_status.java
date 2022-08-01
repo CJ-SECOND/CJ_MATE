@@ -77,7 +77,7 @@ public class delivery_status extends AppCompatActivity {
     }
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.0.18:8080")
+            .baseUrl("http://[IP 주소]:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -96,7 +96,5 @@ public class delivery_status extends AppCompatActivity {
 
             }
         });
-
-
     }
 }
