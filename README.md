@@ -94,6 +94,6 @@ mysql -u [username] -p cjapp < CJ_APP.SQL
 ```
 
 * 3-3. DB Dump file insert (배송 관련 데이터 insert)
-  * /DB/DUMB 폴더 내에 있는 파일 "db_dump_insert.ipynb"파일 실행 필요
+  * /DATASET 폴더 내에 있는 파일 "db_dump_insert.ipynb"파일 실행 필요
   * jupyter notebook 실행후 "db_dump_insert.ipynb" 실행시 자동 db dump data 생성 됨.(dump data insert 전 db 및 table 생성 선행 필요)
 
