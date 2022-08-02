@@ -90,7 +90,7 @@ CREATE DATABASE cjapp;
 * 3-2. DB Table 생성 
  
 ```shell
-mysql -u [username] -p cjapp < /DB/CJ_APP.SQL
+mysql -u [username] -p cjapp < CJ_APP.SQL
 ```
 
 * 3-3. DB Dump file insert (배송 관련 데이터 insert)
