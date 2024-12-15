@@ -2,6 +2,7 @@
 
 <p align="center">
   <img src="https://github.com/CJ-SECOND/CJ_APP/blob/master/img/CJ_APP.png" alt="CJ Mate's logo" width="400px" height="400px"/>
+  <img width="1075" alt="image" src="https://github.com/user-attachments/assets/1e172c9c-31c3-4922-8784-3ed9b198d1a1" width="200px" height="400px" />
 </p>
 
 
